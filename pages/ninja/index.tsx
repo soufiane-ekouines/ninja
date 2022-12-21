@@ -1,8 +1,26 @@
-const Ninja = () => {
+import styles from "../../styles/Ninja.module.css";
+
+export const getStaticProps = async () => {
+    
+    const res = await fetch('https://jsonplaceholder.typicode.com/users');
+    const data=await res.json();
+
+    return{
+        props:{ninjas:data}
+    }
+}
+
+const Ninja = ({ninjas}) => {
     return ( <div>
         <h1> the ninja index</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, debitis magnam provident incidunt iste omnis perferendis nesciunt porro magni, iure eius itaque tenetur odit dolorem dignissimos vel aliquid ut quisquam!</p>
-    </div> );
+        {ninjas.map(Ninja=>(
+            <div key={Ninja.id}>
+                <div className={styles.single}>
+                    <h3> {Ninja.name} </h3>
+                </div>
+            </div>
+        ))}
+   </div> );
 }
  
 export default Ninja;
