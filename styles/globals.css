@@ -35,3 +35,12 @@ footer{
   color:#777;
   border-top: 1px solid #eaeaea;
 }
+
+.Not-found{
+  text-align: center;
+}
+
+.Not-found Link{
+  color: #4979ff;
+  text-decoration: underline;
+}
